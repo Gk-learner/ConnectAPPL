@@ -10,6 +10,7 @@ const User = require("./models/user");
 const jwt = require("jsonwebtoken");
 const { userAuth } = require("./middlewares/auth");
 const userRouter = require("./routes/user");
+require("dotenv").config();
 app.use(cors({
   origin: "http://localhost:5173",
   methods: ["GET", "POST", "PUT", "PATCH","DELETE"],
@@ -20,8 +21,9 @@ app.use(cors({
 app.use(express.json()); //to fetch json data from server/postman and send it as obj to client
 app.use(cookieParser());
 
-app.use("/request", requestRouter);
 app.use("/user",userRouter)
+app.use("/request", requestRouter);
+
 app.options("*", cors());
 
 app.post("/signUp", async (req, res) => {
@@ -71,7 +73,7 @@ return res.json(user);
 app.get("/profile", userAuth, async (req, res) => {
   const cookies = req.cookies;
   const { token } = cookies;
-  const decodedMessage = await jwt.verify(token, "proCookie2024");
+  const decodedMessage = await jwt.verify(token, process.env.JWT_SECRET);
   const { _id } = decodedMessage;
   const user = await User.findById({ _id });
 res.json({ user });});
