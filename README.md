@@ -20,7 +20,7 @@ A full-stack MERN application designed to connect users through a modern, respon
 **Frontend:**
 - React.js
 - JavaScript (ES6+)
-- CSS / Tailwind (if used)
+- CSS / Tailwind 
 
 **Backend:**
 - Node.js
@@ -34,6 +34,19 @@ A full-stack MERN application designed to connect users through a modern, respon
 - Git & GitHub
 
 ---
+## ⚙️ Setup
+
+### Backend
+cd connect-appBE  
+npm install  
+npm run dev  
+
+### Frontend
+cd connect-appFE  
+npm install  
+npm run dev  
+
+---
 
 ## 💡 Key Highlights
 
@@ -42,6 +55,3 @@ A full-stack MERN application designed to connect users through a modern, respon
 - Focused on clean code, reusable components, and performance  
 - Implemented API handling and state management effectively  
 
----
-
-## 📂 Project Structure
